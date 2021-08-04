@@ -22,12 +22,19 @@ const initialFValues = {
     id: 0,
     fullName: '',
     email: '',
-    mobile: '',
-    city: '',
-    gender: 'male',
-    departmentId: '',
+    // mobile: '',
+    // city: '',
+    // gender: 'male',
+    // departmentId: '',
     hireDate: new Date(),
     isPermanent: false,
+    location: '',
+    productionPlace: '',
+    edrpou: '',
+    idNumber: '',
+    whenIssued: '',
+    registrationNumber: '',
+    initials:''
 }
 
 export default function EmployeeForm(props) {
@@ -36,12 +43,36 @@ export default function EmployeeForm(props) {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
+
         if ('fullName' in fieldValues)
-            temp.fullName = fieldValues.fullName ? "" : "This field is required."
-        if ('email' in fieldValues)
-            temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Email is not valid."
-        if ('mobile' in fieldValues)
-            temp.mobile = fieldValues.mobile.length > 9 ? "" : "Minimum 10 numbers required."
+            temp.fullName = fieldValues.fullName ? "" : "Поле не має бути пустим."
+        
+        if ('location' in fieldValues)
+            temp.location = fieldValues.location ? "" : "Поле не має бути пустим."
+            //  temp.location = (/$^|.+@.+..+/).test(fieldValues.location) ? "" : "location is not valid."
+        
+        if ('productionPlace' in fieldValues)
+            temp.productionPlace = fieldValues.productionPlace ? "" : "Поле не має бути пустим."
+        
+        if ('edrpou' in fieldValues)
+            temp.edrpou = fieldValues.edrpou ? "" : "Поле не має бути пустим."
+        
+             if ('idNumber' in fieldValues)
+            temp.idNumber = (/^[0-9\b]+$/).test(fieldValues.idNumber) ? "" : "Має бути заповнено в числовому форматі."
+        
+               if ('whenIssued' in fieldValues)
+            temp.whenIssued = fieldValues.whenIssued ? "" : "Поле не має бути пустим."
+        
+         if ('registrationNumber' in fieldValues)
+            temp.registrationNumber = fieldValues.registrationNumber ? "" : "Поле не має бути пустим."
+        
+         if ('initials' in fieldValues)
+            temp.initials = fieldValues.initials ? "" : "Поле не має бути пустим."
+        
+         if ('email' in fieldValues)
+       temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Поле заповнено невірно."
+        
+                // .length > 9 ? "" : "Minimum 10 numbers required."
         // if ('departmentId' in fieldValues)
         //     temp.departmentId = fieldValues.departmentId.length != 0 ? "" : "This field is required."
         setErrors({
@@ -92,72 +123,77 @@ export default function EmployeeForm(props) {
                     />
                     <Controls.Input
                         label=""
-                        name="email"
-                        value={values.email}
+                        name="location"
+                        value={values.location}
                         onChange={handleInputChange}
-                        error={errors.email}
+                        error={errors.location}
                         type="search"
                         helperText="(місцезнаходження юридичної особи/місце реєстрації фізичної особи - підприємця)"
                     />
                     <Controls.Input
                         label=""
-                        name="mobile"
-                        value={values.mobile}
+                        name="productionPlace"
+                        value={values.productionPlace}
                         onChange={handleInputChange}
-                        error={errors.mobile}
+                        error={errors.productionPlace}
                         type="search"
                         helperText="(місце (місця) провадження медичної практики)*"
                     />
                     <Controls.Input
                         label=""
-                        name="city"
-                        value={values.city}
+                        name="edrpou"
+                        value={values.edrpou}
                         onChange={handleInputChange}
+                         error={errors.edrpou}
                         type="search"
                         helperText="(для юридичних осіб - код згідно з ЄДРПОУ, для фізичних осіб - підприємців -"
                     />
 
  
                     <Controls.Input
-                        name=" "
+                        name="idNumber"
                         label=""
-                        value={values.fullName}
+                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                        value={values.idNumber}
                         onChange={handleInputChange}
-                        error={errors.fullName}
-                        type="search"
+                        error={errors.idNumber}
+                        format="numeric"
+                        
                         helperText="ідентифікаційний код або серія, номер паспорта фізичної особи - підприємця,"
                     />
                     <Controls.Input
                         label=""
-                        name="email"
-                        value={values.email}
+                        name="whenIssued"
+                        value={values.whenIssued}
                         onChange={handleInputChange}
-                        error={errors.email}
+                        error={errors.whenIssued}
                         type="search"
                         helperText="ким і коли виданий (у разі відмови через свої релігійні переконання від прийняття"
                     />
                     <Controls.Input
                         label=""
-                        name="mobile"
-                        value={values.mobile}
+                        name="registrationNumber"
+                        value={values.registrationNumber}
                         onChange={handleInputChange}
-                        error={errors.mobile}
+                        error={errors.registrationNumber}
                         type="search"
                         helperText="реєстраційного номера облікової картки платника податків)"
                     />
                     <Controls.Input
                         label=""
-                        name="city"
-                        value={values.city}
+                        name="initials"
+                        value={values.initials}
                         onChange={handleInputChange}
+                        error={errors.initials}
                         type="search"
                         helperText="(прізвище, ім’я, по батькові керівника юридичної особи)"
                     />
                     <Controls.Input
                         label="e-mail"
-                        name="city"
-                        value={values.city}
+                        name="email"
+                        value={values.email}
                         onChange={handleInputChange}
+                        error={errors.email}
                         type="search"
                         helperText=""
                     />
@@ -182,7 +218,7 @@ export default function EmployeeForm(props) {
                     />  */}
                     <Controls.DatePicker
                         name="hireDate"
-                        label="Hire Date"
+                        label=""
                         value={values.hireDate}
                         onChange={handleInputChange}
                     />
