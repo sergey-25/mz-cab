@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Employees from "./pages/Employees/Employees";
 import PersonalData from "./pages/PersonalData";
+import TopHeader from "./components/Header";
 
 
 
@@ -22,7 +23,9 @@ function Admin() {
         />
 
         <div className={`container ${inactive ? "inactive" : ""}`}>
-          
+          <div>
+            <TopHeader/>
+         </div>
          
   <Switch>
                 <Route exact from="/all-statements" render={props => <Employees  {...props} />} />

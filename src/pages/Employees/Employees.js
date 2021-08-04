@@ -15,8 +15,17 @@ import Notification from "../../components/Notification";
 import ConfirmDialog from "../../components/ConfirmDialog";
 
 const useStyles = makeStyles(theme => ({
+
+    // pageContent: {
+    //     width:400,
+    // [theme.breakpoints.down('xs')]: {
+    //   width:200,
+    // }
+    // },
+
+
     pageContent: {
-        margin: theme.spacing(5),
+        // margin: theme.spacing(5),
         padding: theme.spacing(3)
     },
     searchInput: {
@@ -41,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 
 const headCells = [
     { id: 'fullName', label: 'Тип рішення по заяви' },
-    { id: 'email', label: 'Дата подання' },
+    { id: 'hireDate', label: 'Дата подання' },
     { id: 'mobile', label: 'Дата рішення' },
     { id: 'department', label: 'Статус обробки' },
     { id: 'actions', label: 'Дії', disableSorting: true }
@@ -144,13 +153,13 @@ export default function Employees() {
                     /></div>
                 </Toolbar>
                 <TblContainer>
-                    <TblHead />
+                    <TblHead className={classes.tblHead} />
                     <TableBody>
                         {
                             recordsAfterPagingAndSorting().map(item =>
                                 (<TableRow key={item.id}>
                                     <TableCell>{item.fullName}</TableCell>
-                                    <TableCell>{item.email}</TableCell>
+                                    <TableCell >{item.hireDate}</TableCell>
                                     <TableCell>{item.mobile}</TableCell>
                                     <TableCell>{item.department}</TableCell>
                                     <TableCell>

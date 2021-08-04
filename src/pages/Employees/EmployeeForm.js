@@ -153,7 +153,7 @@ export default function EmployeeForm(props) {
                     <Controls.Input
                         name="idNumber"
                         label=""
-                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                         
                         value={values.idNumber}
                         onChange={handleInputChange}
                         error={errors.idNumber}
@@ -177,7 +177,7 @@ export default function EmployeeForm(props) {
                         onChange={handleInputChange}
                         error={errors.registrationNumber}
                         type="search"
-                        helperText="реєстраційного номера облікової картки платника податків)"
+                        helperText="(реєстраційного номера облікової картки платника податків)"
                     />
                     <Controls.Input
                         label=""

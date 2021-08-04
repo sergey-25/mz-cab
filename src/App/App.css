@@ -42,6 +42,7 @@ body {
 }
 
 .side-menu {
+  z-index: 1;
   position: fixed;
   background: #fff;
   width: 200px;
@@ -49,7 +50,7 @@ body {
   box-sizing: border-box;
   /* padding: 30px 20px; */
   padding-top: 20px;
-  transition: width 0.2s linear;
+  transition: width 0.9 linear;
 }
 
 .side-menu.inactive {
@@ -96,7 +97,7 @@ body {
   margin: 5px 0;
   position: relative;
   max-height: 250px;
-
+  transition: opacity 5s linear;
   overflow-x: hidden;
 }
 /* not required any more */
@@ -105,10 +106,10 @@ body {
 
 .side-menu .main-menu .menu-item span {
   position: absolute;
-  display: inline-block;
-  line-height: 40px;
+
+  /* line-height: 40px; */
   opacity: 1;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.1ms linear;
 }
 
 .side-menu.inactive .main-menu .menu-item span {
@@ -116,9 +117,10 @@ body {
   width: 0;
   height: 0;
   overflow: hidden;
+  transition: opacity 0.1ms linear;
 }
 
-.side-menu .main-menu .sub-menu {
+/* .side-menu .main-menu .sub-menu {
   color: #333;
   margin-left: 20px;
   border-left: 1px solid #666;
@@ -126,14 +128,14 @@ body {
   padding-left: 30px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s linear;
-}
+  transition: max-height 0.1s linear;
+} */
 
-.side-menu .main-menu .sub-menu.active {
+/* .side-menu .main-menu .sub-menu.active {
   max-height: 200px;
-}
+} */
 
-.side-menu .main-menu .sub-menu a {
+/* .side-menu .main-menu .sub-menu a {
   display: block;
   margin: 5px 0;
   font-size: 15px;
@@ -142,16 +144,16 @@ body {
   color: #333;
   box-sizing: border-box;
   padding: 5px;
-}
+} */
 
-.side-menu .main-menu .sub-menu a.active {
-  /* change in background, not recorded in video */
+/* .side-menu .main-menu .sub-menu a.active {
+   change in background, not recorded in video 
   background: #3c44b1;
   display: block;
 
   border-radius: 5px;
   color: #fff;
-}
+} */
 
 .divider {
   width: 100%;
@@ -163,11 +165,11 @@ body {
 
 .container {
   margin-left: 207px;
-  transition: margin-left 0.2s ease-in;
+  transition: margin-left 0.1s linear;
   padding: 50px;
   box-sizing: border-box;
 }
 
 .container.inactive {
-  margin-left: 80px;
+  margin-left: 0px;
 }

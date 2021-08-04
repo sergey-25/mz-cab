@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Header() {
+export default function TopHeader() {
 
     const classes = useStyles();
 
