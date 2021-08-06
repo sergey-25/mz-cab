@@ -50,11 +50,12 @@ body {
   box-sizing: border-box;
   /* padding: 30px 20px; */
   padding-top: 20px;
-  transition: width 0.9 linear;
+  transition: 0.2s linear;
 }
 
 .side-menu.inactive {
   width: 0px;
+  transition: 0.2s linear;
 }
 
 .side-menu .top-section {
@@ -71,11 +72,13 @@ body {
   right: 0;
   transform: translateY(-50%);
   cursor: pointer;
+  transition: 0.1s linear;
 }
 
 .side-menu.inactive .top-section .toggle-menu-btn {
   right: -50px;
   color: #3c44b1;
+  transition: 0.1s linear;
 }
 
 .side-menu .main-menu .menu-item {
@@ -85,9 +88,11 @@ body {
   display: block;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s linear;
 }
 
 .side-menu .main-menu .menu-item.active {
+  transition: 0.2s linear;
   background: #fff;
   border-radius: 5px;
   color: #3c44b1;
@@ -97,19 +102,21 @@ body {
   margin: 5px 0;
   position: relative;
   max-height: 250px;
-  transition: opacity 5s linear;
+  transition: 0.2s linear;
   overflow-x: hidden;
 }
 /* not required any more */
 .side-menu.inactive .main-menu {
+  transition: 0.2s linear;
 }
 
 .side-menu .main-menu .menu-item span {
+  transition: opacity 0.5ms linear;
   position: absolute;
 
   /* line-height: 40px; */
   opacity: 1;
-  transition: opacity 0.1ms linear;
+  transition: margin-left 0.5s linear;
 }
 
 .side-menu.inactive .main-menu .menu-item span {
@@ -117,10 +124,10 @@ body {
   width: 0;
   height: 0;
   overflow: hidden;
-  transition: opacity 0.1ms linear;
+  transition-timing-function: linear;
 }
 
-/* .side-menu .main-menu .sub-menu {
+.side-menu .main-menu .sub-menu {
   color: #333;
   margin-left: 20px;
   border-left: 1px solid #666;
@@ -128,8 +135,8 @@ body {
   padding-left: 30px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.1s linear;
-} */
+  animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
+}
 
 /* .side-menu .main-menu .sub-menu.active {
   max-height: 200px;
@@ -165,11 +172,13 @@ body {
 
 .container {
   margin-left: 207px;
-  transition: margin-left 0.1s linear;
-  padding: 50px;
+  transition: margin-left 0.2s linear;
+
   box-sizing: border-box;
 }
 
 .container.inactive {
-  margin-left: 0px;
+  margin-left: 55px;
+  animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
+  /* transition: margin-left 0.5s linear; */
 }

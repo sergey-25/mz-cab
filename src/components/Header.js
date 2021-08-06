@@ -4,11 +4,13 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import SearchIcon from '@material-ui/icons/Search';
-
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#fff',
+        borderBottomLeftRadius: '4px',
+         borderBottomRightRadius: '4px'
         
     },
     searchInput: {
@@ -21,7 +23,15 @@ const useStyles = makeStyles(theme => ({
         '& .MuiSvgIcon-root': {
             marginRight: theme.spacing(1)
         }
-    }
+    },
+    btnMenu: {
+      position:'absolute',
+        width: '45px',
+        height: '45px',
+       paddingRight:'1px'
+      
+        
+    },
 }))
 
 export default function TopHeader() {
@@ -33,13 +43,7 @@ export default function TopHeader() {
             <Toolbar>
                 <Grid container
                     alignItems="center">
-                    <Grid item>
-                        <InputBase
-                            placeholder="Search topics"
-                            className={classes.searchInput}
-                            startAdornment={<SearchIcon fontSize="small" />}
-                        />
-                    </Grid>
+                    {/* <MenuIcon  className={classes.btnMenu } color="primary"/> */}
                     <Grid item sm></Grid>
                     <Grid item>
                         <IconButton>

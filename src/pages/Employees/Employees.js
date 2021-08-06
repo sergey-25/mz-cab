@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import EmployeeForm from "./EmployeeForm";
 import PageHeader from "../../components/PageHeader";
+
 import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import { Paper, makeStyles, TableBody, TableRow, TableCell, Toolbar, InputAdornment } from '@material-ui/core';
 import useTable from "../../components/useTable";
@@ -14,6 +15,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Notification from "../../components/Notification";
 import ConfirmDialog from "../../components/ConfirmDialog";
 
+
+
 const useStyles = makeStyles(theme => ({
 
     // pageContent: {
@@ -25,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 
     pageContent: {
-        // margin: theme.spacing(5),
+         margin: theme.spacing(1),
         padding: theme.spacing(3)
     },
     searchInput: {
@@ -120,6 +123,9 @@ export default function Employees() {
         })
     }
 
+
+
+     
     return (
         <>
             {/* <PageHeader
@@ -154,6 +160,7 @@ export default function Employees() {
                 </Toolbar>
                 <TblContainer>
                     <TblHead className={classes.tblHead} />
+                    
                     <TableBody>
                         {
                             recordsAfterPagingAndSorting().map(item =>

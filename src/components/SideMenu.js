@@ -43,11 +43,16 @@ const useStyles = makeStyles({
   icon: {
     marginRight:'10px'
   },
-    btnMenu: {
+  btnMenu: {
+    position: 'fixed',
+   
         width: '45px',
         height: '45px',
-        paddingTop: '20px',
-        paddingLeft: '29px'
+        paddingTop: '12px',
+    paddingLeft: '9px',
+    
+   
+      
         
     },
     btnClose: {
@@ -62,6 +67,9 @@ const useStyles = makeStyles({
       border: '2px solid red',
       borderRadius: '4px'
     }
+  },
+  some: {
+      background:'red'
     },
      active: {
         background: '#fff',
@@ -90,7 +98,7 @@ const useStyles = makeStyles({
              
           }
   },
-    
+  
     
  })
 
@@ -145,7 +153,7 @@ const SideMenu = (props) => {
         </div>
       </div>
 
-
+ 
       <div className="divider"></div>
 
           <div className="main-menu">

@@ -24,7 +24,7 @@ function Admin() {
 
         <div className={`container ${inactive ? "inactive" : ""}`}>
           <div>
-            <TopHeader/>
+            {/* <TopHeader/> */}
          </div>
          
   <Switch>
