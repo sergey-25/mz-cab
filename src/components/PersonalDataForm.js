@@ -6,8 +6,22 @@ const useStyles = makeStyles((theme) => ({
     root: {
       
    '& .MuiInputBase-root': {
-            width: '100%',
+              width: '275px',
             fontSize: '13px',
+             [theme.breakpoints.up('sm')]: {
+                 padding: '15px',
+                 minWidth: '650px',
+                
+         },
+            // [theme.breakpoints.up('xs')]: {
+            //      minWidth: '275px',
+            // },
+            //  [theme.breakpoints.up('sm')]: {
+            //      minWidth: '275px',
+            // },
+            //   [theme.breakpoints.up('md')]: {
+            //      width: '550px',
+            // },
             
             '&:hover:before': {
                  outlineColor:'red',
@@ -29,8 +43,18 @@ const useStyles = makeStyles((theme) => ({
         },
 
         '& .MuiFormHelperText-root': {
-            width: '550px',
-            lineHeight:'1.3',
+           width: '550px',
+            lineHeight: '1.3',
+            [theme.breakpoints.up('xs')]: {
+                 width: '320px',
+            },
+            [theme.breakpoints.up('sm')]: {
+                 width: '680px',
+            },
+              [theme.breakpoints.up('md')]: {
+                 width: '550px',
+            },
+              
         },
 
         '& .MuiInputBase-multiline': {
@@ -40,19 +64,29 @@ const useStyles = makeStyles((theme) => ({
                paddingLeft:'5px '
         }
     },
-   
+    paper: {
+        [theme.breakpoints.up('sm')]: {
+                padding: '15px',
+                minWidth: '680px',
+                
+        },
+   },
     form: {
-       
-          display: 'flex',
-      flexWrap:'wrap  ',
-        justifyContent:'space-between',
-         paddingTop: '30px ',
-           paddingBottom: '30px ',
-         paddingRight: '20px ',
-          paddingLeft:'10px '
-       
+        display: 'flex',
+        flexWrap: 'wrap  ',
+        justifyContent: 'space-between',
+        padding: '50px',
+         
+        [theme.breakpoints.up('xs')]: {
+            padding: '15px',
+        },
+        [theme.breakpoints.up('sm')]: {
+            padding: '30px',
+        },
+        [theme.breakpoints.up('lg')]: {
+            padding: '50px',
+        },
     },
-    
     
 }));
 
@@ -100,7 +134,7 @@ export default function PersonalDataForm() {
        const classes = useStyles();
         
 
-    return (<Paper > <Toolbar style={{background:'rgb(237 235 236)', boxShadow: '1px 12px 8px 0px rgba(34, 60, 80, 0.2)'}}><Typography>Особисті дані користувача</Typography> </Toolbar>
+    return (<Paper className={classes.paper} > <Toolbar style={{background:'rgb(237 235 236)', boxShadow: '1px 12px 8px 0px rgba(34, 60, 80, 0.2)'}}><Typography>Особисті дані користувача</Typography> </Toolbar>
         <form className={classes.form}>
             
 

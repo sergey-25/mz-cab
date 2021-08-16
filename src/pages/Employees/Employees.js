@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
             },
         [theme.breakpoints.only('sm')]: {
              position: 'fixed',
-              top: '309px',
+             bottom: '45px',
         left: '3px',
             },
         [theme.breakpoints.up( 'md')]: {
