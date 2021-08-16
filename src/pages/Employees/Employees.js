@@ -18,14 +18,20 @@ import ConfirmDialog from "../../components/ConfirmDialog";
 
 
 const useStyles = makeStyles(theme => ({
+    root: {
+'& .':{},
 
-    // pageContent: {
-    //     width:400,
-    // [theme.breakpoints.down('xs')]: {
-    //   width:200,
-    // }
-    // },
-
+    },
+    
+    //  pageContent: {
+    //      width: 400,
+    //      overflowX:'auto',
+    //  [theme.breakpoints.down('xs')]: {
+    //    width:200,
+    //  }
+    //  },
+  
+    
 
     pageContent: {
          margin: theme.spacing(1),
@@ -36,7 +42,10 @@ const useStyles = makeStyles(theme => ({
     },
     newButton: {
         padding: '1px 30px',
-        marginRight: '22px'
+        marginRight: '22px',
+        [theme.breakpoints.between('xs', 'sm')]: {
+            display:'none', },
+        
         // position: 'absolute',
         // right: '10px'
     },
@@ -46,8 +55,22 @@ const useStyles = makeStyles(theme => ({
     },
     toolbar: {
         padding:'0px'
-    }
+    },
 
+    addBtn: {
+      [theme.breakpoints.up('xs')]: {
+             position: 'fixed',
+             bottom: '31px',
+        left: '3px',
+            },
+        [theme.breakpoints.only('sm')]: {
+             position: 'fixed',
+              top: '309px',
+        left: '3px',
+            },
+        [theme.breakpoints.up( 'md')]: {
+            display:'none', },
+    }
 }))
 
 
@@ -137,6 +160,18 @@ export default function Employees() {
 
                 <Toolbar className={classes.toolbar}>
                     <div className={classes.statementContainer}>
+
+
+                        <div >
+                             <Controls.FabAdd
+                        startIcon={<AddIcon />}
+                      className={classes.addBtn}
+                      
+                        onClick={() => { setOpenPopup(true); setRecordForEdit(null); }}
+                        />
+                        </div>
+                        
+                        
                         
                         <div className={classes.btnField}>
                              <Controls.Button
@@ -146,7 +181,7 @@ export default function Employees() {
                         className={classes.newButton}
                         onClick={() => { setOpenPopup(true); setRecordForEdit(null); }}
                         />
-                   </div>
+                   </div> 
                         <Controls.Input
                         label="Пошук по заявам"
                         className={classes.searchInput}
@@ -158,10 +193,10 @@ export default function Employees() {
                         onChange={handleSearch}
                     /></div>
                 </Toolbar>
-                <TblContainer>
+                <TblContainer className={classes.tblContainer}>
                     <TblHead className={classes.tblHead} />
                     
-                    <TableBody>
+                    <TableBody >
                         {
                             recordsAfterPagingAndSorting().map(item =>
                                 (<TableRow key={item.id}>

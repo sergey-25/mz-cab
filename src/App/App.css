@@ -182,3 +182,11 @@ body {
   animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
   /* transition: margin-left 0.5s linear; */
 }
+.input {
+  transition: margin-left 0.2s linear;
+}
+.input.inactive {
+  width: 100px;
+  animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
+  /* transition: margin-left 0.5s linear; */
+}

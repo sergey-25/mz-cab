@@ -1,16 +1,34 @@
 import React, { useState } from 'react'
 import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel, } from '@material-ui/core'
-
+import TableContainer from '@material-ui/core/TableContainer';
 const useStyles = makeStyles(theme => ({
+    root: {
+        "& .MuiTable-root": {
+             [theme.breakpoints.between('xs', 'sm')]: {
+                padding: '15px',
+                background: 'red',
+                overflowX: "auto",
+        },
+        },
+    },
     table: {
+         
         marginTop: theme.spacing(3),
         '& thead th': {
             fontWeight: '600',
             color: theme.palette.primary.main,
             backgroundColor: theme.palette.primary.light,
+            
+        
         },
+        
         '& tbody td': {
             fontWeight: '300',
+             [theme.breakpoints.between('xs', 'sm')]: {
+                padding: '0px',
+           
+                width:'300px',
+        },
         },
         '& tbody tr:hover': {
             backgroundColor: '#fffbf2',
@@ -30,9 +48,11 @@ export default function useTable(records, headCells,filterFn) {
     const [orderBy, setOrderBy] = useState()
 
     const TblContainer = props => (
-        <Table className={classes.table}>
+        <TableContainer style={{overflowX:'auto'}}>
+            <Table className={classes.table}>
             {props.children}
-        </Table>
+        </Table></TableContainer>
+       
     )
 
     const TblHead = props => {
@@ -45,7 +65,7 @@ export default function useTable(records, headCells,filterFn) {
 
       
 
-        return (<TableHead>
+        return (<TableHead >
 
             <TableRow>
                 {

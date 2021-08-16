@@ -5,6 +5,8 @@ import RadioGroup from "./RadioGroup";
 import DatePicker from "./DatePicker";
 import Button from "./Button";
 import ActionButton from "./ActionButton";
+import FabAdd from "./Fab";
+
 
 const Controls = {
     Input,
@@ -13,6 +15,7 @@ const Controls = {
     // Checkbox,
     DatePicker,
     Button,
+    FabAdd,
     ActionButton
 }
 

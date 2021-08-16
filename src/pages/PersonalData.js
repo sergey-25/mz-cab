@@ -1,6 +1,7 @@
 import { Button } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from "@material-ui/core";
+import PersonalDataForm from '../components/PersonalDataForm';
 const useStyles = makeStyles({
     cancelBtn: {
         background: 'red',
@@ -21,6 +22,7 @@ const classes = useStyles();
 
     return (
         <div>
+            <PersonalDataForm/>
            <Button className={classes.cancelBtn}>Cкасувати</Button>
         </div>
     )
