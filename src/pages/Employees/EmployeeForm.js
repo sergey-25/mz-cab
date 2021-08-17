@@ -6,11 +6,44 @@ import * as employeeService from "../../services/employeeService";
 import { makeStyles } from '@material-ui/core'
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+
+
+
+    root: {
+
+        '& .MuiFormControl-root': {
+            width:'100%',
+            [theme.breakpoints.up('xs')]: {
+                width:'100%',
+            },
+            [theme.breakpoints.up('sm')]: {
+                width:'100%',
+            },
+            [theme.breakpoints.only('md')]: {
+                width: '465px',
+            },
+           
+        },
+    },
+
+
     modal: {
-    top:'-13px'
-}
-})
+        top: '-13px'
+    },
+
+    dfsd: {
+        paddingTop: '16px',
+    },
+    
+    gridForm: {
+        marginTop: '20px',
+    },
+
+    controlBtns: {
+        marginTop: '20px',
+    },
+}));
 
 // const genderItems = [
 //     { id: 'male', title: 'Male' },
@@ -38,6 +71,12 @@ const initialFValues = {
 }
 
 export default function EmployeeForm(props) {
+
+
+
+
+
+    
     const { addOrEdit, recordForEdit } = props
     const classes = useStyles()
 
@@ -107,10 +146,12 @@ export default function EmployeeForm(props) {
     }, [recordForEdit])
 
     return (
-        <Form onSubmit={handleSubmit} >
-            <Grid container >
-                <Grid item xs={13}>
+        <Form onSubmit={handleSubmit}
+                 className={classes.root}>
+            <Grid container justifyContent='space-between'>
+                <Grid item xs={12} sm={6} >
                     <Controls.Input
+                       
                         name="fullName"
                         label="Здобувач ліцензії"
                         value={values.fullName}
@@ -121,7 +162,11 @@ export default function EmployeeForm(props) {
                                         по батькові фізичної особи - підприємця)"
 
                     />
+                </Grid>
+                
+                <Grid item xs={12} sm={6} >
                     <Controls.Input
+                        className={classes.dfsd}
                         label=""
                         name="location"
                         value={values.location}
@@ -130,6 +175,9 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="(місцезнаходження юридичної особи/місце реєстрації фізичної особи - підприємця)"
                     />
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} >
                     <Controls.Input
                         label=""
                         name="productionPlace"
@@ -139,6 +187,9 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="(місце (місця) провадження медичної практики)*"
                     />
+                </Grid>
+                
+                <Grid item xs={12} sm={6} >
                     <Controls.Input
                         label=""
                         name="edrpou"
@@ -148,8 +199,9 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="(для юридичних осіб - код згідно з ЄДРПОУ, для фізичних осіб - підприємців -"
                     />
-
+                    </Grid>
  
+                 <Grid item xs={12} sm={6} >
                     <Controls.Input
                         name="idNumber"
                         label=""
@@ -161,6 +213,9 @@ export default function EmployeeForm(props) {
                         
                         helperText="ідентифікаційний код або серія, номер паспорта фізичної особи - підприємця,"
                     />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
                     <Controls.Input
                         label=""
                         name="whenIssued"
@@ -170,6 +225,9 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="ким і коли виданий (у разі відмови через свої релігійні переконання від прийняття"
                     />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
                     <Controls.Input
                         label=""
                         name="registrationNumber"
@@ -179,6 +237,9 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="(реєстраційного номера облікової картки платника податків)"
                     />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
                     <Controls.Input
                         label=""
                         name="initials"
@@ -188,6 +249,10 @@ export default function EmployeeForm(props) {
                         type="search"
                         helperText="(прізвище, ім’я, по батькові керівника юридичної особи)"
                     />
+                </Grid>
+                
+                
+                <Grid item xs={12} sm={6}>
                     <Controls.Input
                         label="e-mail"
                         name="email"
@@ -198,7 +263,7 @@ export default function EmployeeForm(props) {
                         helperText=""
                     />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}  className = {classes.gridForm}>
                     {/* <Controls.RadioGroup
                         name="gender"
                         label="Gender"
@@ -217,6 +282,7 @@ export default function EmployeeForm(props) {
                         error={errors.departmentId}
                     />  */}
                     <Controls.DatePicker
+                      
                         name="hireDate"
                         label=""
                         value={values.hireDate}
@@ -229,7 +295,7 @@ export default function EmployeeForm(props) {
                         onChange={handleInputChange}
                     /> */}
 
-                    <div>
+                    <div className={classes.controlBtns}>
                         <Controls.Button
                             type="submit"
                             text="Подати" />

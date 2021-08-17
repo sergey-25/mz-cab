@@ -23,8 +23,14 @@ const useStyles = makeStyles(theme => ({
         },
         
         '& tbody td': {
+             padding: '0px',
             fontWeight: '300',
              [theme.breakpoints.between('xs', 'sm')]: {
+                padding: '0px',
+           
+                width:'300px',
+            },
+                [theme.breakpoints.only('xs')]: {
                 padding: '0px',
            
                 width:'300px',

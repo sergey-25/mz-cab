@@ -18,24 +18,11 @@ import ConfirmDialog from "../../components/ConfirmDialog";
 
 
 const useStyles = makeStyles(theme => ({
-    root: {
-'& .':{},
-
-    },
     
-    //  pageContent: {
-    //      width: 400,
-    //      overflowX:'auto',
-    //  [theme.breakpoints.down('xs')]: {
-    //    width:200,
-    //  }
-    //  },
-  
     
-
     pageContent: {
          margin: theme.spacing(1),
-        padding: theme.spacing(3)
+        padding: theme.spacing(1.5)
     },
     searchInput: {
         width: '100%'
@@ -53,9 +40,7 @@ const useStyles = makeStyles(theme => ({
         display: 'contents',
         
     },
-    toolbar: {
-        padding:'0px'
-    },
+   
 
     addBtn: {
       [theme.breakpoints.up('xs')]: {
@@ -63,9 +48,9 @@ const useStyles = makeStyles(theme => ({
              bottom: '31px',
         left: '3px',
             },
-        [theme.breakpoints.only('sm')]: {
+        [theme.breakpoints.only('m')]: {
              position: 'fixed',
-             bottom: '45px',
+             bottom: '298px',
         left: '3px',
             },
         [theme.breakpoints.up( 'md')]: {
@@ -158,7 +143,7 @@ export default function Employees() {
             /> */}
             <Paper className={classes.pageContent}>
 
-                <Toolbar className={classes.toolbar}>
+                <Toolbar  style={{padding:'0px'}}>
                     <div className={classes.statementContainer}>
 
 
