@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
        maxWidth: "80%", 
         position: 'absolute',
          [theme.breakpoints.between('xs','md')]: {
-             maxWidth: '100%',
+             minWidth: '100%',
              minHeight:'100%',
              margin:'0px'
             },
