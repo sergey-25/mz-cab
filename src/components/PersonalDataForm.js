@@ -1,29 +1,21 @@
 import React,{useState} from 'react'
 import {TextField, Paper, Toolbar, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import { DriveEtaOutlined } from '@material-ui/icons';
 const useStyles = makeStyles((theme)=>({
     root: {
+        '& .MuiFormControl-root': {
+    miWidth: '100%',
+},
+        
       
-   '& .MuiInputBase-root': {
-              width: '275px',
-            fontSize: '13px',
-             [theme.breakpoints.up('sm')]: {
-                 padding: '15px',
-                 minWidth: '650px',
-                
-         },
-            // [theme.breakpoints.up('xs')]: {
-            //      minWidth: '275px',
-            // },
-            //  [theme.breakpoints.up('sm')]: {
-            //      minWidth: '275px',
-            // },
-            //   [theme.breakpoints.up('md')]: {
-            //      width: '550px',
-            // },
+        '& .MuiInputBase-root': {
+       width:'100%',
+    
             
-            '&:hover:before': {
+             '&:hover:before': {
                  outlineColor:'red',
            borderBottom:'1px solid grey',
             borderBottomColor: 'none'
@@ -43,17 +35,17 @@ const useStyles = makeStyles((theme)=>({
         },
 
         '& .MuiFormHelperText-root': {
-           width: '550px',
+            width:'550px',
             lineHeight: '1.3',
             [theme.breakpoints.up('xs')]: {
-                 width: '320px',
+                 width: '350px',
             },
-            [theme.breakpoints.up('sm')]: {
-                 width: '680px',
-            },
-              [theme.breakpoints.up('md')]: {
-                 width: '550px',
-            },
+            // [theme.breakpoints.up('sm')]: {
+            //      width: '100%',
+            // },
+               [theme.breakpoints.up('md')]: {
+                  width:'550px'
+             },
               
         },
 
@@ -65,9 +57,10 @@ const useStyles = makeStyles((theme)=>({
         }
     },
     paper: {
+        marginBottom:'30px',
         [theme.breakpoints.up('sm')]: {
                 padding: '15px',
-                minWidth: '680px',
+              
                 
         },
    },
@@ -75,18 +68,34 @@ const useStyles = makeStyles((theme)=>({
         display: 'flex',
         flexWrap: 'wrap  ',
         justifyContent: 'space-between',
-        padding: '50px',
+        width:'100%',
+        
+        
          
         [theme.breakpoints.up('xs')]: {
             padding: '15px',
         },
         [theme.breakpoints.up('sm')]: {
-            padding: '30px',
+            padding: '15px',
         },
         [theme.breakpoints.up('lg')]: {
-            padding: '50px',
+            padding: '15px',
         },
     },
+    formContainer: {
+        // width:'1',
+        // margin: '0',
+        justifyContent: 'space-around',
+            display: 'flex',
+           flexWrap:'wrap',
+           
+        [theme.breakpoints.only('lg')]: {
+            justifyContent: 'space-around',
+            display: 'flex',
+           flexWrap:'wrap',
+        },    
+           
+        },
     
 }));
 
@@ -135,10 +144,13 @@ export default function PersonalDataForm() {
         
 
     return (<Paper className={classes.paper} > <Toolbar style={{background:'rgb(237 235 236)', boxShadow: '1px 12px 8px 0px rgba(34, 60, 80, 0.2)'}}><Typography>Особисті дані користувача</Typography> </Toolbar>
-        <form className={classes.form}>
+        <div   className={classes.formContainer}
+            style={{paddingLeft: '15px', paddingRight: '15px',paddingTop:'30px',paddingBottom:'20px'
+        }}>
             
-
-                <TextField
+{/* className={classes.form} */}
+            
+                 <TextField
                     
                     className={classes.root}
                     type="text"
@@ -151,8 +163,10 @@ export default function PersonalDataForm() {
                         readOnly: true,
                     }}
                 ></TextField>
+               
           
          
+           
                 <TextField
                 className={classes.root}
                     type="text"
@@ -167,8 +181,10 @@ export default function PersonalDataForm() {
                        
                     }}
                 ></TextField>
+                
       
          
+           
                 <TextField
                     className={classes.root}
                     type="text"
@@ -181,8 +197,10 @@ export default function PersonalDataForm() {
                     readOnly="readOnly"
                     onChange={handleChange}
                 ></TextField>
+                
           
-         
+            
+                
                 <TextField
                     className={classes.root}
                     type="text"
@@ -194,6 +212,7 @@ export default function PersonalDataForm() {
                     }}
                     onChange={handleChange}
                 ></TextField>
+         
             
 
                 <TextField
@@ -409,7 +428,8 @@ export default function PersonalDataForm() {
                     onChange={handleChange}
                 ></TextField>
             
-            </form></Paper>
+        </div>
+    </Paper>
             
         );
     }

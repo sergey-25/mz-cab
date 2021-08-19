@@ -14,19 +14,16 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 3px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
   display: none;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 10px;
@@ -34,7 +31,6 @@ body {
   color: #3c44b1;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #fff;
   display: block;
@@ -48,7 +44,7 @@ body {
   width: 200px;
   height: 100%;
   box-sizing: border-box;
-  /* padding: 30px 20px; */
+
   padding-top: 20px;
   transition: 0.2s linear;
 }
@@ -105,7 +101,7 @@ body {
   transition: 0.2s linear;
   overflow-x: hidden;
 }
-/* not required any more */
+
 .side-menu.inactive .main-menu {
   transition: 0.2s linear;
 }
@@ -114,7 +110,6 @@ body {
   transition: opacity 0.5ms linear;
   position: absolute;
 
-  /* line-height: 40px; */
   opacity: 1;
   transition: margin-left 0.5s linear;
 }
@@ -138,30 +133,6 @@ body {
   animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
 }
 
-/* .side-menu .main-menu .sub-menu.active {
-  max-height: 200px;
-} */
-
-/* .side-menu .main-menu .sub-menu a {
-  display: block;
-  margin: 5px 0;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #333;
-  box-sizing: border-box;
-  padding: 5px;
-} */
-
-/* .side-menu .main-menu .sub-menu a.active {
-   change in background, not recorded in video 
-  background: #3c44b1;
-  display: block;
-
-  border-radius: 5px;
-  color: #fff;
-} */
-
 .divider {
   width: 100%;
   height: 1px;
@@ -171,7 +142,7 @@ body {
 }
 
 .container {
-  margin-left: 207px;
+  /* margin-left: 207px; */
   transition: margin-left 0.2s linear;
 
   box-sizing: border-box;
@@ -180,7 +151,6 @@ body {
 .container.inactive {
   margin-left: 55px;
   animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
-  /* transition: margin-left 0.5s linear; */
 }
 .input {
   transition: margin-left 0.2s linear;
@@ -188,5 +158,4 @@ body {
 .input.inactive {
   width: 100px;
   animation: x 0.3s cubic-bezier(0, 1.5, 1, 1.5);
-  /* transition: margin-left 0.5s linear; */
 }

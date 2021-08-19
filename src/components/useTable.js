@@ -6,9 +6,14 @@ const useStyles = makeStyles(theme => ({
         "& .MuiTable-root": {
              [theme.breakpoints.between('xs', 'sm')]: {
                 padding: '15px',
-                background: 'red',
+              
                 overflowX: "auto",
         },
+        },
+
+
+        '& .MuiTableCell-root': {
+          padding:'7px'  
         },
     },
     table: {
@@ -71,12 +76,14 @@ export default function useTable(records, headCells,filterFn) {
 
       
 
-        return (<TableHead >
+        return (<TableHead className={classes.root}>
 
             <TableRow>
                 {
                     headCells.map(headCell => (
-                        <TableCell key={headCell.id}
+                        <TableCell
+                            
+                            key={headCell.id}
                             sortDirection={orderBy === headCell.id ? order : false}>
                             {headCell.disableSorting ? headCell.label :
                                 <TableSortLabel

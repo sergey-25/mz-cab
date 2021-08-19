@@ -1,22 +1,22 @@
-
-import React, { useEffect, useState } from "react";
+import React from 'react';
+import clsx from 'clsx';
 import { useLocation, withRouter } from 'react-router-dom';
-import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import MenuIcon from '@material-ui/icons/Menu';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
- import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 import AllInboxOutlinedIcon from '@material-ui/icons/AllInboxOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import MenuIcon from '@material-ui/icons/Menu';
 
-
-
-
-
-
- export const itemsList = [
+export const itemsList = [
     {
       text: 'Всі заявки',
         path: '/all-statements',
@@ -39,6 +39,13 @@ icon: <PermIdentityOutlinedIcon/>,
         exact: true,
     }
   ]
+
+
+
+
+
+
+
 const useStyles = makeStyles({
   icon: {
     marginRight:'10px'
@@ -97,6 +104,12 @@ const useStyles = makeStyles({
      border:'1px solid red',
              
           }
+    },
+     list: {
+    
+  },
+  fullList: {
+    width: 'auto',
   },
   
     
@@ -106,68 +119,62 @@ const useStyles = makeStyles({
 
 
 
-const SideMenu = (props) => {
-  const [inactive, setInactive] = useState(true);
+
+
+
+
+
+
+const SideMenu=(props)=> {
+    const classes = useStyles();
+    
+
+
+
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+    
     const { history } = props;
-    const location = useLocation();
-  useEffect(() => {
-    if (inactive) {
-      removeActiveClassFromSubMenu();
+  
+
+  const location = useLocation();
+
+    
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
     }
 
-    props.onCollapse(inactive);
-  }, [inactive]);
-
-  //just an improvment and it is not recorded in video :(
-  const removeActiveClassFromSubMenu = () => {
-    document.querySelectorAll(".sub-menu").forEach((el) => {
-      el.classList.remove("active");
-    });
+    setState({ ...state, [anchor]: open });
   };
 
-  
-  useEffect(() => {
-    let menuItems = document.querySelectorAll(".menu-item");
-    menuItems.forEach((el) => {
-      el.addEventListener("click", (e) => {
-        const next = el.nextElementSibling;
-        removeActiveClassFromSubMenu();
-        menuItems.forEach((el) => el.classList.remove("active"));
-        el.classList.toggle("active");
-        
-        if (next !== null) {
-          next.classList.toggle("active");
-        }
-      });
-    });
-  }, []);
-  const classes = useStyles();
-  return (
-    <div className={`side-menu ${inactive ? "inactive" : ""}`}>
-      <div className="top-section">
-        
-        <div onClick={() => setInactive(!inactive)} className="toggle-menu-btn">
-          {inactive ? (
-                    <MenuIcon className={classes.btnMenu}></MenuIcon>) : (<ArrowBackIosRoundedIcon className={classes.btnClose}>
-             </ArrowBackIosRoundedIcon>)}
-        </div>
-      </div>
-
- 
-      <div className="divider"></div>
-
-          <div className="main-menu">
-              
-
-              <List>
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+     
+      <Divider />
+     <List>
           {itemsList.map((item, index) => {
             const { text, onClick } = item;
+
+             
             return (
               <ListItem button key={text} onClick={() => history.push(item.path)} className={location.pathname == item.path ? classes.active : classes.btn}>
                 <div className={classes.icon}>
                   {item.icon}
 </div>
-                <ListItemText primary={text}/>
+                <ListItemText primary={text}/>  
               </ListItem>
 
             )
@@ -185,19 +192,25 @@ const SideMenu = (props) => {
             )
           })}
         </List>
-       
-      </div>
-
-      
     </div>
   );
-};
 
+  return (
+    <div>
+      {['left'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}><MenuIcon color="primary" fontSize="large"/></Button>
+          <SwipeableDrawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+            onOpen={toggleDrawer(anchor, true)}
+          >
+            {list(anchor)}
+          </SwipeableDrawer>
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
 export default withRouter (SideMenu);
-
-
-
-
-
-
-

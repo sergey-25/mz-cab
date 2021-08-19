@@ -44,9 +44,10 @@ const useStyles = makeStyles(theme => ({
 
     addBtn: {
       [theme.breakpoints.up('xs')]: {
-             position: 'fixed',
-             bottom: '31px',
-        left: '3px',
+            position: 'fixed',
+            bottom: '31px',
+       left: '3px',
+         
             },
         [theme.breakpoints.only('m')]: {
              position: 'fixed',
