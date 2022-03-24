@@ -1,45 +1,46 @@
-import React, { useState } from 'react'
-import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel, } from '@material-ui/core'
+import React, {useState} from 'react'
+import {Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel,} from '@material-ui/core'
 import TableContainer from '@material-ui/core/TableContainer';
+
 const useStyles = makeStyles(theme => ({
     root: {
         "& .MuiTable-root": {
-             [theme.breakpoints.between('xs', 'sm')]: {
+            [theme.breakpoints.between('xs', 'sm')]: {
                 padding: '15px',
-              
+
                 overflowX: "auto",
-        },
+            },
         },
 
 
         '& .MuiTableCell-root': {
-          padding:'7px'  
+            padding: '7px'
         },
     },
     table: {
-         
+
         marginTop: theme.spacing(3),
         '& thead th': {
             fontWeight: '600',
             color: theme.palette.primary.main,
             backgroundColor: theme.palette.primary.light,
-            
-        
+
+
         },
-        
+
         '& tbody td': {
-             padding: '0px',
+            padding: '0px',
             fontWeight: '300',
-             [theme.breakpoints.between('xs', 'sm')]: {
+            [theme.breakpoints.between('xs', 'sm')]: {
                 padding: '0px',
-           
-                width:'300px',
+
+                width: '300px',
             },
-                [theme.breakpoints.only('xs')]: {
+            [theme.breakpoints.only('xs')]: {
                 padding: '0px',
-           
-                width:'300px',
-        },
+
+                width: '300px',
+            },
         },
         '& tbody tr:hover': {
             backgroundColor: '#fffbf2',
@@ -48,7 +49,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-export default function useTable(records, headCells,filterFn) {
+export default function useTable(records, headCells, filterFn) {
 
     const classes = useStyles();
 
@@ -59,11 +60,11 @@ export default function useTable(records, headCells,filterFn) {
     const [orderBy, setOrderBy] = useState()
 
     const TblContainer = props => (
-        <TableContainer style={{overflowX:'auto'}}>
+        <TableContainer style={{overflowX: 'auto'}}>
             <Table className={classes.table}>
-            {props.children}
-        </Table></TableContainer>
-       
+                {props.children}
+            </Table></TableContainer>
+
     )
 
     const TblHead = props => {
@@ -74,7 +75,6 @@ export default function useTable(records, headCells,filterFn) {
             setOrderBy(cellId)
         }
 
-      
 
         return (<TableHead className={classes.root}>
 
@@ -82,14 +82,16 @@ export default function useTable(records, headCells,filterFn) {
                 {
                     headCells.map(headCell => (
                         <TableCell
-                            
+
                             key={headCell.id}
                             sortDirection={orderBy === headCell.id ? order : false}>
                             {headCell.disableSorting ? headCell.label :
                                 <TableSortLabel
                                     active={orderBy === headCell.id}
                                     direction={orderBy === headCell.id ? order : 'asc'}
-                                    onClick={() => { handleSortRequest(headCell.id) }}>
+                                    onClick={() => {
+                                        handleSortRequest(headCell.id)
+                                    }}>
                                     {headCell.label}
                                 </TableSortLabel>
                             }

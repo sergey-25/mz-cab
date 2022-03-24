@@ -1,0 +1,36 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.container-fluid {
+  text-align: center;
+}
+
+.gradient-bg {
+  background: url(../images/authorization-bg.jpg);
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .gradient-bg {
+    height: 100vh;
+  }
+}
+
+.logo-container {
+  display: inline;
+}
+
+#logo {
+  width: 190px;
+  height: 180px;
+  display: block;
+  background: url(../images/auth-logo.svg);
+}
+
+.icon-diia {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: url(../images/diia_icon.svg) no-repeat center center;
+}

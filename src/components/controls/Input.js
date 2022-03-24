@@ -3,10 +3,10 @@ import { TextField } from '@material-ui/core';
 
 export default function Input(props) {
 
-    const { name, label, value,error=null, onChange, ...other } = props;
+    const { name, placeholder, label, value,error=null, onChange, ...other } = props;
     return (
         <TextField
-           
+           placeholder={placeholder}
             label={label}
             name={name}
             value={value}

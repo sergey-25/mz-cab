@@ -1,77 +1,78 @@
-import React,{useState} from 'react'
+import React, {useState} from 'react'
 import {TextField, Paper, Toolbar, Typography} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
-import { DriveEtaOutlined } from '@material-ui/icons';
-const useStyles = makeStyles((theme)=>({
+import {DriveEtaOutlined} from '@material-ui/icons';
+
+const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiFormControl-root': {
-    miWidth: '100%',
-},
-        
-      
+            miWidth: '100%',
+        },
+
+
         '& .MuiInputBase-root': {
-       width:'100%',
-    
-            
-             '&:hover:before': {
-                 outlineColor:'red',
-           borderBottom:'1px solid grey',
-            borderBottomColor: 'none'
-        },
-            
+            width: '100%',
+
+
+            '&:hover:before': {
+                outlineColor: 'red',
+                borderBottom: '1px solid grey',
+                borderBottomColor: 'none'
+            },
+
             '&:after': {
-             outlineColor:'none',
-            borderBottom: 'none ',
-            borderBottomColor: 'none'
-        },
+                outlineColor: 'none',
+                borderBottom: 'none ',
+                borderBottomColor: 'none'
+            },
         },
         '& .MuiInputBase-input': {
             paddingTop: '5px ',
             paddingBottom: '1px ',
             paddingRight: '5px ',
-               paddingLeft:'5px '
+            paddingLeft: '5px '
         },
 
         '& .MuiFormHelperText-root': {
-            width:'550px',
+            width: '550px',
             lineHeight: '1.3',
             [theme.breakpoints.up('xs')]: {
-                 width: '350px',
+                width: '350px',
             },
             // [theme.breakpoints.up('sm')]: {
             //      width: '100%',
             // },
-               [theme.breakpoints.up('md')]: {
-                  width:'550px'
-             },
-              
+            [theme.breakpoints.up('md')]: {
+                width: '550px',
+                backgroundColor:'red'
+            },
+
         },
 
         '& .MuiInputBase-multiline': {
-             paddingTop: '5px ',
+            paddingTop: '5px ',
             paddingBottom: '1px ',
             paddingRight: '5px ',
-               paddingLeft:'5px '
+            paddingLeft: '5px '
         }
     },
     paper: {
-        marginBottom:'30px',
+        marginBottom: '30px',
         [theme.breakpoints.up('sm')]: {
-                padding: '15px',
-              
-                
+            // padding: '15px',
+
+
         },
-   },
+    },
     form: {
         display: 'flex',
         flexWrap: 'wrap  ',
         justifyContent: 'space-between',
-        width:'100%',
-        
-        
-         
+        width: '100%',
+
+
         [theme.breakpoints.up('xs')]: {
             padding: '15px',
         },
@@ -86,72 +87,72 @@ const useStyles = makeStyles((theme)=>({
         // width:'1',
         // margin: '0',
         justifyContent: 'space-around',
-            display: 'flex',
-           flexWrap:'wrap',
-           
+        display: 'flex',
+        flexWrap: 'wrap',
+
         [theme.breakpoints.only('lg')]: {
             justifyContent: 'space-around',
             display: 'flex',
-           flexWrap:'wrap',
-        },    
-           
+            flexWrap: 'wrap',
         },
-    
+
+    },
+
 }));
 
 
 export default function PersonalDataForm() {
-    
+
+
     const [state, setState] = useState({
 
-            "issuer": "undefined",
-            "issuercn": "undefined",
-            "serial": "undefined",
-            "subject": "undefined",
-            "subjectcn":"undefined",
-            "locality": "undefined",
-            "state": "undefined",
-            "o": "undefined",
-            "ou": "undefined",
-            "title": "undefined",
-            "givenname": "undefined",
-            "middlename": "undefined",
-            "lastname": "undefined",
-            "email": "undefined",
-            "address": "undefined",
-            "phone": "undefined",
-            "dns": "undefined",
-            "edrpoucode": "undefined",
-            "drfocode": "undefined",
-            "unzr": "undefined"
+        "issuer": "undefined",
+        "issuercn": "undefined",
+        "serial": "undefined",
+        "subject": "undefined",
+        "subjectcn": "undefined",
+        "locality": "undefined",
+        "state": "undefined",
+        "o": "undefined",
+        "ou": "undefined",
+        "title": "undefined",
+        "givenname": "undefined",
+        "middlename": "undefined",
+        "lastname": "undefined",
+        "email": "undefined",
+        "address": "undefined",
+        "phone": "undefined",
+        "dns": "undefined",
+        "edrpoucode": "undefined",
+        "drfocode": "undefined",
+        "unzr": "undefined"
     });
-    
 
-        const handleChange = e => {
-            const { name, value } = e.target;
-            setState(prevState => ({
-                ...prevState,
-                [name]: value
-            }));
-        };
-    
 
-   
-      
-        
+    const handleChange = e => {
+        const {name, value} = e.target;
+        setState(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
 
-       const classes = useStyles();
-        
 
-    return (<Paper className={classes.paper} > <Toolbar style={{background:'rgb(237 235 236)', boxShadow: '1px 12px 8px 0px rgba(34, 60, 80, 0.2)'}}><Typography>Особисті дані користувача</Typography> </Toolbar>
-        <div   className={classes.formContainer}
-            style={{paddingLeft: '15px', paddingRight: '15px',paddingTop:'30px',paddingBottom:'20px'
-        }}>
-            
-{/* className={classes.form} */}
-            
-                 <TextField
-                    
+    const classes = useStyles();
+
+
+    return (<Paper className={classes.paper}> <Toolbar
+            style={{background: 'rgb(237 235 236)', boxShadow: '1px 12px 8px 0px rgba(34, 60, 80, 0.2)'}}><Typography>Особисті
+            дані користувача</Typography> </Toolbar>
+            <div className={classes.formContainer}
+                 style={{
+                     paddingLeft: '15px', paddingRight: '15px', paddingTop: '30px', paddingBottom: '20px'
+                 }}>
+
+                {/* className={classes.form} */}
+
+                <TextField
+
                     className={classes.root}
                     type="text"
                     helperText="Реквізити видавника сертифіката(Надавач)"
@@ -163,12 +164,10 @@ export default function PersonalDataForm() {
                         readOnly: true,
                     }}
                 ></TextField>
-               
-          
-         
-           
+
+
                 <TextField
-                className={classes.root}
+                    className={classes.root}
                     type="text"
                     //   variant="outlined"
                     helperText="Загальне ім'я надавача"
@@ -178,13 +177,11 @@ export default function PersonalDataForm() {
                     onChange={handleChange}
                     InputProps={{
                         readOnly: true,
-                       
+
                     }}
                 ></TextField>
-                
-      
-         
-           
+
+
                 <TextField
                     className={classes.root}
                     type="text"
@@ -197,10 +194,8 @@ export default function PersonalDataForm() {
                     readOnly="readOnly"
                     onChange={handleChange}
                 ></TextField>
-                
-          
-            
-                
+
+
                 <TextField
                     className={classes.root}
                     type="text"
@@ -212,8 +207,7 @@ export default function PersonalDataForm() {
                     }}
                     onChange={handleChange}
                 ></TextField>
-         
-            
+
 
                 <TextField
                     className={classes.root}
@@ -265,7 +259,7 @@ export default function PersonalDataForm() {
                     }}
                     onChange={handleChange}
                 ></TextField>
-            
+
 
                 <TextField
                     className={classes.root}
@@ -330,8 +324,8 @@ export default function PersonalDataForm() {
                     onChange={handleChange}
                 ></TextField>
 
-            
-                    <TextField
+
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -343,8 +337,8 @@ export default function PersonalDataForm() {
                     }}
                     onChange={handleChange}
                 ></TextField>
-            
-                    <TextField
+
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -358,7 +352,7 @@ export default function PersonalDataForm() {
                 ></TextField>
 
 
-            <TextField
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -369,10 +363,10 @@ export default function PersonalDataForm() {
                         readOnly: true,
                     }}
                     onChange={handleChange}
-            ></TextField>
+                ></TextField>
 
-            
-             <TextField
+
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -386,7 +380,7 @@ export default function PersonalDataForm() {
                 ></TextField>
 
 
-            <TextField
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -397,10 +391,10 @@ export default function PersonalDataForm() {
                         readOnly: true,
                     }}
                     onChange={handleChange}
-            ></TextField>
-            
+                ></TextField>
 
-            <TextField
+
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -411,11 +405,10 @@ export default function PersonalDataForm() {
                         readOnly: true,
                     }}
                     onChange={handleChange}
-            ></TextField>
-            
+                ></TextField>
 
 
-             <TextField
+                <TextField
                     multiline
                     className={classes.root}
                     type="text"
@@ -427,11 +420,11 @@ export default function PersonalDataForm() {
                     }}
                     onChange={handleChange}
                 ></TextField>
-            
-        </div>
-    </Paper>
-            
-        );
-    }
+
+            </div>
+        </Paper>
+
+    );
+}
 
 

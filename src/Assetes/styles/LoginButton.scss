@@ -1,0 +1,31 @@
+#login-button {
+  background-color: black;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  font-family: e-Ukraine, Roboto, arial, sans-serif;
+  border: none;
+  border-radius: 3.5rem;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 30px;
+  text-transform: none;
+
+  img {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: black;
+  }
+}

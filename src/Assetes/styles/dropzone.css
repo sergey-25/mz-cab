@@ -1,0 +1,64 @@
+@import url(https://db.onlinewebfonts.com/c/a44207bfe4040f536c824dbbf82f5ed1?family=e-Ukraine);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.title {
+    margin: 0;
+    font-family: "e-Ukraine";
+    font-size: 18px;
+    word-break: break-word;
+    line-height: 24px;
+}
+
+.title > span {
+    text-decoration: underline;
+}
+
+.formats {
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.select {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.container {
+    font-family: "e-Ukraine";
+    width: 100%;
+    padding: 0;
+}
+
+.button {
+    margin-top: 80px;
+    color:#fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "e-Ukraine";
+    font-weight: bold;
+    border: none;
+    border-radius:40px;
+    outline: none;
+    padding:17px 68px;
+    background-color: #000000;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+}
+.button:hover{
+color: #fff;
+opacity: 1;
+animation: 10s infinite granimate;
+box-shadow: none;
+visibility: visible;
+background-size: 200% 300%;
+background-color: transparent;
+background-image: linear-gradient(217deg,rgba(255,0,0,.8),rgba(255,0,0,0) 70.71%),linear-gradient(127deg,rgba(0,0,255,.8),rgba(0,0,255,0) 70.71%),linear-gradient(336deg,rgba(0,255,0,.8),rgba(0,255,0,0) 70.71%);
+}
